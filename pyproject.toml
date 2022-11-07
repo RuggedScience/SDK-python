@@ -28,9 +28,9 @@ classifiers = [
 dynamic = ["version"]
 
 [project.urls]
-homepage = "https://github.com/ruggedscience/sdk"
-documentation = "https://github.com/ruggedscience/sdk"
-repository = "https://github.com/ruggedscience/sdk"
+homepage = "https://github.com/ruggedscience/SDK-python"
+documentation = "https://github.com/ruggedscience/SDK-python"
+repository = "https://github.com/ruggedscience/SDK-python"
 
 [tool.setuptools.dynamic]
 version = {file = "version.txt"}
