@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(INSTALL_UTILITIES OFF CACHE BOOL "Install utilities")
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared library")
 
-add_subdirectory(sdk EXCLUDE_FROM_ALL)
+add_subdirectory(SDK EXCLUDE_FROM_ALL)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 

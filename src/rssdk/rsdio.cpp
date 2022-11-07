@@ -4,15 +4,15 @@
 {
     "distutils": {
         "depends": [
-            "sdk\\dio\\include\\rsdio.h"
+            "SDK/dio/include/rsdio.h"
         ],
         "extra_compile_args": [
             "-DRSDIO_VERSION_STRING=\"3.0.4\""
         ],
         "include_dirs": [
             "src/rssdk",
-            "sdk/dio/include",
-            "sdk/utils"
+            "SDK/dio/include",
+            "SDK/utils"
         ],
         "language": "c++",
         "name": "rssdk.rsdio",
@@ -1000,7 +1000,7 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "stringsource",
-  "src\\rssdk\\rsdio.pyx",
+  "src/rssdk/rsdio.pyx",
 };
 
 /*--- Type declarations ---*/

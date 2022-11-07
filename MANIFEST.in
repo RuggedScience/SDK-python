@@ -3,14 +3,14 @@ include src/rssdk/drv.dll
 include src/rssdk/*.pyx
 include src/rssdk/*.h
 
-include sdk/utils/*
+include SDK/utils/*
 
-include sdk/dio/include/*.h
-include sdk/dio/src/*.h
-include sdk/dio/src/controllers/*.h
+include SDK/dio/include/*.h
+include SDK/dio/src/*.h
+include SDK/dio/src/controllers/*.h
 
-include sdk/poe/include/*.h
-include sdk/poe/src/*.h
-include sdk/poe/src/controllers/*.h
+include SDK/poe/include/*.h
+include SDK/poe/src/*.h
+include SDK/poe/src/controllers/*.h
 
 

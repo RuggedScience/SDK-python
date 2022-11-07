@@ -4,15 +4,15 @@
 {
     "distutils": {
         "depends": [
-            "sdk\\poe\\include\\rspoe.h"
+            "SDK/poe/include/rspoe.h"
         ],
         "extra_compile_args": [
             "-DRSPOE_VERSION_STRING=\"3.0.5\""
         ],
         "include_dirs": [
             "src/rssdk",
-            "sdk/poe/include",
-            "sdk/utils"
+            "SDK/poe/include",
+            "SDK/utils"
         ],
         "language": "c++",
         "name": "rssdk.rspoe",
@@ -1002,7 +1002,7 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "stringsource",
-  "src\\rssdk\\rspoe.pyx",
+  "src/rssdk/rspoe.pyx",
 };
 
 /*--- Type declarations ---*/

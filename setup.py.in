@@ -19,7 +19,7 @@ rsdio_extension = Extension(
     'rssdk.rsdio',
     language='c++',
     sources=rsdio_sources,
-    include_dirs=['src/rssdk', 'sdk/dio/include', 'sdk/utils'],
+    include_dirs=['src/rssdk', 'SDK/dio/include', 'SDK/utils'],
     extra_compile_args=['-DRSDIO_VERSION_STRING="$<TARGET_PROPERTY:rsdio,VERSION>"']
 )
 
@@ -27,7 +27,7 @@ rspoe_extension = Extension(
     'rssdk.rspoe',
     language='c++',
     sources=rspoe_sources,
-    include_dirs=['src/rssdk', 'sdk/poe/include', 'sdk/utils'],
+    include_dirs=['src/rssdk', 'SDK/poe/include', 'SDK/utils'],
     extra_compile_args=['-DRSPOE_VERSION_STRING="$<TARGET_PROPERTY:rspoe,VERSION>"']
 )
 
