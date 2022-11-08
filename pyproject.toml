@@ -9,7 +9,7 @@ readme = "README.md"
 authors = [
     {name = "Timothy Lassiter", email = "tim.lassiter@ruggedscience.com"}
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.6"
 keywords = ["rssdk", "rsdio", "rspoe", "cmake", "cython"]
 license = {text = "MIT"}
 classifiers = [
@@ -34,3 +34,4 @@ repository = "https://github.com/ruggedscience/SDK-python"
 
 [tool.setuptools_scm]
 write_to = "src/rssdk/_version.py"
+local_scheme = "no-local-version"
