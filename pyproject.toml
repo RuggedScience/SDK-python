@@ -9,7 +9,7 @@ readme = "README.md"
 authors = [
     {name = "Timothy Lassiter", email = "tim.lassiter@ruggedscience.com"}
 ]
-requires-python = ">=3.6"
+requires-python = ">=3.7"
 keywords = ["rssdk", "rsdio", "rspoe", "cmake", "cython"]
 license = {text = "MIT"}
 classifiers = [
@@ -20,7 +20,6 @@ classifiers = [
     'Operating System :: OS Independent',
     'Programming Language :: Cython',
     'Programming Language :: C',
-    'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: Implementation :: CPython',
     'Topic :: Software Development :: Libraries',
     'Topic :: Utilities',
