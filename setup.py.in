@@ -1,0 +1,46 @@
+# Always prefer setuptools over distutils
+from setuptools import setup, Extension
+
+from Cython.Build import cythonize
+
+rsdio_sources = [
+    'src/rssdk/rsdio.pyx',
+    $<JOIN:"$<TARGET_PROPERTY:rsdio,PYTHON_SOURCES>,"$<COMMA>
+    ">"
+]
+
+rspoe_sources = [
+    'src/rssdk/rspoe.pyx',
+    $<JOIN:"$<TARGET_PROPERTY:rspoe,PYTHON_SOURCES>,"$<COMMA>
+    ">"
+]
+
+rsdio_extension = Extension(
+    'rssdk.rsdio',
+    language='c++',
+    sources=rsdio_sources,
+    include_dirs=['src/rssdk', 'sdk/dio/include', 'sdk/utils'],
+    extra_compile_args=['-DRSDIO_VERSION_STRING="$<TARGET_PROPERTY:rsdio,VERSION>"']
+)
+
+rspoe_extension = Extension(
+    'rssdk.rspoe',
+    language='c++',
+    sources=rspoe_sources,
+    include_dirs=['src/rssdk', 'sdk/poe/include', 'sdk/utils'],
+    extra_compile_args=['-DRSPOE_VERSION_STRING="$<TARGET_PROPERTY:rspoe,VERSION>"']
+)
+
+setup(
+    package_dir={"": "src"},
+    packages=['rssdk'],
+    ext_modules=cythonize(
+        [rsdio_extension, rspoe_extension],
+        language_level='3',
+        compiler_directives={"linetrace": True} # Opt-in via CYTHON_TRACE macro
+    ),
+    setup_requires=[
+        'cython >= 0.22.1',
+    ],
+    zip_safe=False,
+)
