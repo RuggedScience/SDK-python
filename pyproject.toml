@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=43.0.0", "wheel", "cython"]
+requires = ["setuptools>=45", "wheel", "cython", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -32,5 +32,5 @@ homepage = "https://github.com/ruggedscience/SDK-python"
 documentation = "https://github.com/ruggedscience/SDK-python"
 repository = "https://github.com/ruggedscience/SDK-python"
 
-[tool.setuptools.dynamic]
-version = {file = "version.txt"}
+[tool.setuptools_scm]
+write_to = "src/rssdk/_version.py"

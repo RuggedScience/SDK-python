@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
-project(rssdk-python VERSION 1.0.0)
+project(rssdk-python)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -34,12 +34,6 @@ file(GENERATE
     INPUT ${CMAKE_CURRENT_SOURCE_DIR}/setup.py.in
 )
 
-# Create version file for python package
-file(GENERATE
-    OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/version.txt
-    CONTENT "${CMAKE_PROJECT_VERSION}"
-)
-
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/python.stamp
     COMMAND ${Python3_EXECUTABLE} -m build -o ${CMAKE_CURRENT_BINARY_DIR}
@@ -47,7 +41,6 @@ add_custom_command(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     DEPENDS
         ${CMAKE_CURRENT_SOURCE_DIR}/setup.py
-        ${CMAKE_CURRENT_SOURCE_DIR}/version.txt
     COMMENT "Building python bindings"
 )
 

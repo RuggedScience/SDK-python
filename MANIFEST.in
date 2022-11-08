@@ -1,7 +1,8 @@
-include version.txt
-include src/rssdk/drv.dll
-include src/rssdk/*.pyx
-include src/rssdk/*.h
+exclude .gitignore
+exclude .gitmodules
+exclude CMakeLists.txt
+exclude setup.py.in
+
 
 include SDK/utils/*
 
@@ -12,5 +13,3 @@ include SDK/dio/src/controllers/*.h
 include SDK/poe/include/*.h
 include SDK/poe/src/*.h
 include SDK/poe/src/controllers/*.h
-
-

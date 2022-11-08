@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 /setup.py
-/version.txt
+/src/rssdk/_version.py
