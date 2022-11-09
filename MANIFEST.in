@@ -3,6 +3,7 @@ exclude .gitmodules
 exclude CMakeLists.txt
 exclude setup.py.in
 
+include exports/*.h
 
 include SDK/utils/*
 
