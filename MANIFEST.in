@@ -2,15 +2,10 @@ exclude .gitignore
 exclude .gitmodules
 exclude CMakeLists.txt
 exclude setup.py.in
+prune .github
 
-include exports/*.h
+graft exports
 
-include SDK/utils/*
-
-include SDK/dio/include/*.h
-include SDK/dio/src/*.h
-include SDK/dio/src/controllers/*.h
-
-include SDK/poe/include/*.h
-include SDK/poe/src/*.h
-include SDK/poe/src/controllers/*.h
+graft SDK/utils
+graft SDK/dio
+graft SDK/poe
