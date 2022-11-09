@@ -2,25 +2,8 @@ __all__ = ['RsDio']
 
 from enum import Enum
 
-from libcpp cimport bool
-from libcpp.string cimport string
 
-
-cdef extern from "rsdio.h":
-    cdef enum COutputMode "OutputMode":
-        pass
-
-    cdef cppclass CRsDio "RsDio":
-        void destroy()
-        bool setXmlFile(const char *, bool)
-        int setOutputMode(int, COutputMode)
-        int digitalRead(int, int)
-        int digitalWrite(int, int, bool)
-        string getLastError()
-        string version()
-
-    CRsDio* createRsDio() except +
-
+from rssdk.rsdio cimport rsdio_c
 
 class OutputMode(Enum):
     ModeError = 0
@@ -29,9 +12,9 @@ class OutputMode(Enum):
 
 
 cdef class RsDio:
-    cdef CRsDio *_native
+    cdef rsdio_c.RsDio *_native
     def __cinit__(self):
-        self._native = createRsDio()
+        self._native = rsdio_c.createRsDio()
     def __dealloc__(self):
         self._native.destroy()
     def setXmlFile(self, filename: str, debug=False) -> bool:

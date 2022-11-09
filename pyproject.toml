@@ -33,4 +33,3 @@ repository = "https://github.com/ruggedscience/SDK-python"
 
 [tool.setuptools_scm]
 write_to = "src/rssdk/_version.py"
-local_scheme = "no-local-version"

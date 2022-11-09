@@ -131,5 +131,5 @@ dmypy.json
 /setup.py
 /src/rssdk/_version.py
 
-/src/rssdk/rsdio.cpp
-/src/rssdk/rspoe.cpp
+# Cython generated cpp files
+/src/rssdk/*/*.cpp

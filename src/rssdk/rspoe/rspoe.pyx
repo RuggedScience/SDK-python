@@ -2,24 +2,7 @@ __all__ = ['RsPoe']
 
 from enum import Enum, auto
 
-from libcpp cimport bool
-from libcpp.string cimport string
-
-
-cdef extern from "rspoe.h":
-    cdef enum CPoeState "PoeState":
-        pass
-
-    cdef cppclass CRsPoe "RsPoe":
-        void destroy()
-        bool setXmlFile(const char *)
-        CPoeState getPortState(int)
-        int setPortState(int, CPoeState)
-        string getLastError()
-        string version()
-
-    CRsPoe* createRsPoe() except +
-
+from rssdk.rspoe cimport rspoe_c
 
 class PoeState(Enum):
     StateDisabled = 0
@@ -29,9 +12,9 @@ class PoeState(Enum):
 
 
 cdef class RsPoe:
-    cdef CRsPoe *_native
+    cdef rspoe_c.RsPoe *_native
     def __cinit__(self):
-        self._native = createRsPoe()
+        self._native = rspoe_c.createRsPoe()
     def __dealloc__(self):
         self._native.destroy()
     def setXmlFile(self, filename: str) -> bool:
