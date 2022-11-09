@@ -1,12 +1,12 @@
 import os
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages, Extension
+from setuptools import setup, Extension
 
 from Cython.Build import cythonize
 
-package_data = {}
+package_data = {'rssdk': ['*.py']}
 if os.name == 'nt':
-    package_data['rssdk'] = ['*.dll']
+    package_data['rssdk'].append('*.dll')
 
 rsdio_sources = [
     'src/rssdk/rsdio/rsdio.pyx',
@@ -38,7 +38,7 @@ rspoe_extension = Extension(
 
 setup(
     package_dir={"": "src"},
-    packages=find_packages(),
+    packages=['rssdk'],
     ext_modules=cythonize(
         [rsdio_extension, rspoe_extension],
         language_level='3',
