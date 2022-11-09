@@ -13,7 +13,9 @@ This requires a compiler to be installed such as MSVC or g++. If no compiler is 
 from rssdk import RsDio, OutputMode
 
 dio = RsDio()
-dio.setXmlFile("ecs9000.xml")
+if not dio.setXmlFile("ecs9000.xml"):
+    print(dio.getLastError())
+    exit(1)
 
 dio.setOutputMode(1, OutputMode.ModeNpn)
 
@@ -27,7 +29,9 @@ dio.digitalWrite(1, 11, True)
 from rssdk import RsPoe, PoeState
 
 poe = RsPoe()
-poe.setXmlFile("ecs9000.xml")
+if not poe.setXmlFile("ecs9000.xml"):
+    print(dio.getLastError())
+    exit(1)
 
 poe.getPortState(3)
 poe.setPortState(PoeState.StateDisabled)
