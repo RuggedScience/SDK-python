@@ -1,7 +1,12 @@
+import os
 # Always prefer setuptools over distutils
 from setuptools import setup, Extension
 
 from Cython.Build import cythonize
+
+package_data = {}
+if os.name == 'nt':
+    package_data['rssdk'] = ['*.dll']
 
 rsdio_sources = [
     'src/rssdk/rsdio.pyx',
@@ -42,5 +47,7 @@ setup(
     setup_requires=[
         'cython >= 0.22.1',
     ],
+    include_package_data=False,
+    package_data=package_data,
     zip_safe=False,
 )
