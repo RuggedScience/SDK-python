@@ -4,7 +4,7 @@ from setuptools import setup, Extension
 
 from Cython.Build import cythonize
 
-package_data = {'rssdk': ['*.py']}
+package_data = {'rssdk': ['*.py', '*.pyi', 'py.typed']}
 if os.name == 'nt':
     package_data['rssdk'].append('*.dll')
 
