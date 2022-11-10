@@ -4,10 +4,6 @@ This is a wrapper around the [Rugged Science SDK](https://github.com/ruggedscien
 ## Installing
 The package can be installed either by [compiling the sources](#compiling) or installing via `python -m pip install rssdk`.  
 
-***NOTE:*** When installing via `pip`, if a prebuilt wheel is not available for your platform and Python version the SDK will have to be compiled. 
-This requires a compiler to be installed such as MSVC or g++. If no compiler is found an error will be thrown during installation and the module will not be installed.  
-
-
 ## Dio Example
 ```python
 from rssdk import RsDio, OutputMode
