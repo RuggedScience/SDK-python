@@ -39,6 +39,7 @@ set(EXPORTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/exports)
 include(GenerateExportHeader)
 generate_export_header(rsdio EXPORT_FILE_NAME ${EXPORTS_DIR}/rsdio_export.h)
 generate_export_header(rspoe EXPORT_FILE_NAME ${EXPORTS_DIR}/rspoe_export.h)
+generate_export_header(rserrors EXPORT_FILE_NAME ${EXPORTS_DIR}/rserrors_export.h)
 
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/python.stamp
