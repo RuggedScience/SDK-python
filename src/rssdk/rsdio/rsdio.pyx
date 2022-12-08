@@ -1,6 +1,9 @@
+# distutils: language = c++
+
 __all__ = ['RsDio']
 
 from enum import Enum
+from typing import Dict
 
 
 from rssdk.rsdio cimport rsdio_c
@@ -18,14 +21,16 @@ cdef class RsDio:
     def __dealloc__(self):
         self._native.destroy()
     def setXmlFile(self, filename: str, debug=False) -> bool:
-        return self._native.setXmlFile(filename.encode('utf-8'), debug)
+        self._native.setXmlFile(filename.encode('utf-8'), debug)
     def setOutputMode(self, dio: int, mode: OutputMode):
-        return self._native.setOutputMode(dio, mode.value)
+        self._native.setOutputMode(dio, mode.value)
     def digitalRead(self, dio: int, pin: int) -> int:
         return self._native.digitalRead(dio, pin)
     def digitalWrite(self, dio: int, pin: int, state: bool) -> int:
-        return self._native.digitalWrite(dio, pin, state)
+        self._native.digitalWrite(dio, pin, state)
+    def readAll(self, dio: int) -> Dict[int, bool]:
+        return self._native.readAll(dio)
     def getLastError(self) -> str:
-        return self._native.getLastError().decode('UTF-8')
+        return self._native.getLastErrorString().decode('UTF-8')
     def version(self) -> str:
-        return self._native.version().decode('UTF-8')
+        return rsdio_c.rsDioVersion().decode('UTF-8')

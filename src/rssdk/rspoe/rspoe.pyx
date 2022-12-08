@@ -1,3 +1,5 @@
+# distutils: language = c++
+
 __all__ = ['RsPoe']
 
 from enum import Enum, auto
@@ -20,10 +22,10 @@ cdef class RsPoe:
     def setXmlFile(self, filename: str) -> bool:
         return self._native.setXmlFile(filename.encode('utf-8'))
     def getPortState(self, port: int) -> PoeState:
-        return PoeState(self._native.getPortState(port))
+        return PoeState(<int>self._native.getPortState(port))
     def setPortState(self, port: int, state: PoeState) -> int:
         return self._native.setPortState(port, state.value)
     def getLastError(self) -> str:
-        return self._native.getLastError().decode('UTF-8')
+        return self._native.getLastErrorString().decode('UTF-8')
     def version(self) -> str:
-        return self._native.version().decode('UTF-8')
+        return rspoe_c.rsPoeVersion().decode('UTF-8')

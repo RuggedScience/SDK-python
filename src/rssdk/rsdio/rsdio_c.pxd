@@ -1,18 +1,21 @@
 from libcpp cimport bool
 from libcpp.string cimport string
+from libcpp.map cimport map
 
 
-cdef extern from "rsdio.h":
-    cdef enum OutputMode:
-        pass
+cdef extern from "rsdio.h" namespace "rs":
+    cpdef enum class OutputMode:
+            pass
 
     cdef cppclass RsDio:
         void destroy()
-        bool setXmlFile(const char *, bool)
-        int setOutputMode(int, OutputMode)
-        int digitalRead(int, int)
-        int digitalWrite(int, int, bool)
-        string getLastError()
-        string version()
+        void setXmlFile(const char *, bool)
+        void setOutputMode(int, OutputMode)
+        bool digitalRead(int, int)
+        void digitalWrite(int, int, bool)
+        map[int, bool] readAll(int)
+
+        string getLastErrorString()
 
     RsDio* createRsDio() except +
+    const char* rsDioVersion()

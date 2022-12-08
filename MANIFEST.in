@@ -9,3 +9,4 @@ graft exports
 graft SDK/utils
 graft SDK/dio
 graft SDK/poe
+graft SDK/error
