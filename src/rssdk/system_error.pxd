@@ -1,10 +1,9 @@
 from libcpp cimport bool
+#from libc cimport errno
 
 cdef extern from "<system_error>" namespace "std":
     cdef enum class errc:
-        no_such_file_or_directory = 2
-        operation_not_permitted = 1
-        protocol_error = 71
+        pass
 
     cdef cppclass error_category:
         str name()

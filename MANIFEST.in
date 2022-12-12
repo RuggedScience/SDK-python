@@ -10,3 +10,6 @@ graft SDK/utils
 graft SDK/dio
 graft SDK/poe
 graft SDK/error
+
+include src/rssdk/*.pyx
+include src/rssdk/*.pxd
