@@ -26,20 +26,6 @@ cdef extern from "rsdio.h" namespace "rs":
     const char* rsDioVersion()
 
 
-
-cdef code_to_exception(error_code code, str message):
-    if code:
-        if code == make_error_code(<errc>errno.EPERM):
-            raise PermissionError(message)
-        if code == make_error_code(<errc>errno.ENOENT):
-            raise FileNotFoundError(message)
-        if code == make_error_code(<errc>errno.ENOSYS):
-            raise NotImplementedError(message)
-        if code == make_error_code(<errc>errno.EINVAL):
-            raise ValueError(message)
-        raise Exception(message)
-
-
 from typing import Dict
 
 cdef class PyRsDio:
@@ -50,7 +36,6 @@ cdef class PyRsDio:
         self._native.destroy()
     def setXmlFile(self, filename: str, debug=False) -> None:
         self._native.setXmlFile(filename.encode('utf-8'), debug)
-        code_to_exception(self._native.getLastError(), "Test")
         if self._native.getLastError():
             raise Exception(self._native.getLastErrorString())
     def setOutputMode(self, dio: int, mode: OutputMode) -> None:

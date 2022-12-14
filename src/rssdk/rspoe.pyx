@@ -28,11 +28,17 @@ cdef class PyRsPoe:
     def __dealloc__(self):
         self._native.destroy()
     def setXmlFile(self, filename: str) -> bool:
-        return self._native.setXmlFile(filename.encode('utf-8'))
+        self._native.setXmlFile(filename.encode('utf-8'))
+        if self._native.getLastError():
+            raise Exception(self._native.getLastErrorString())
     def getPortState(self, port: int) -> PoeState:
-        return self._native.getPortState(port)
+        state = self._native.getPortState(port)
+        if self._native.getLastError():
+            raise Exception(self._native.getLastErrorString())
     def setPortState(self, port: int, state: PoeState) -> int:
-        return self._native.setPortState(port, state)
+        self._native.setPortState(port, state)
+        if self._native.getLastError():
+            raise Exception(self._native.getLastErrorString())
     def getLastError(self) -> str:
         return self._native.getLastErrorString().decode('UTF-8')
     def version(self) -> str:
